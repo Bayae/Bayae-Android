@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.dudes.dexin.bayae.MainActivity">
 
+    <Button
+        android:id="@+id/btn_modelSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="115dp" />
 </android.support.constraint.ConstraintLayout>
