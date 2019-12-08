@@ -3,29 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="250dp"
     android:background="@color/colorPrimary"
     >
 
     <ImageButton
         android:id="@+id/ib_title_back"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="13dp"
+        android:layout_height="52dp"
         android:layout_marginLeft="10dp"
         android:background="@null"
-        android:src="@drawable/return_button" />
+        android:src="@drawable/menu" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="标题"
+        android:text="背也"
+        android:textStyle="bold"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textColor="#fff"
-        android:textSize="22sp"
+        android:textSize="80sp"
         android:id="@+id/tv_title"
         />
 
