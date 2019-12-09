@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dudes.dexin.bayae.user.User_Info">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="个人信息"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="47dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/return_button" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="80dp"
+            android:contentDescription="头像"
+            app:srcCompat="@drawable/image" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="210dp"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            android:text="用户名"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="250dp"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            android:text="账号:123456"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="350dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="学习设置"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="410dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="打卡日历"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="470dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="修改资料"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="530dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="隐私政策"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="590dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="帮助与反馈"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="650dp"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/colorSecondaryText"
+            android:shadowRadius="10dp"
+            android:text="退出登录"
+            android:textSize="30sp" />
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+
