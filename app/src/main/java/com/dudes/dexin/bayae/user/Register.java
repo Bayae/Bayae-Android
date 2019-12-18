@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.dudes.dexin.bayae.R;
 
-public class register extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
