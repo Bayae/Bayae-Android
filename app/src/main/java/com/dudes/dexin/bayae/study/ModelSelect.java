@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dudes.dexin.bayae.ModelInList;
 import com.dudes.dexin.bayae.R;
+import com.dudes.dexin.bayae.model.ModelInList;
 
 
 public class ModelSelect extends Activity {

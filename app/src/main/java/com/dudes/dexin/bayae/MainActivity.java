@@ -13,17 +13,32 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
+import com.dudes.dexin.bayae.model.ModelInList;
 import com.dudes.dexin.bayae.study.ModelSelect;
 
 public class MainActivity extends Activity {
-
+    private SharedPreferencesHelper sharedPreferencesHelper;
+    public String DEFAULT_WORDLIB = "raw/quizlib.txt";
+    public String DEFAULT_QUIZLIB = "quizlib";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
 
-//        Button btn = findViewById(R.id.btn_modelSelect);
+    private void init(){
+        //通过用户偏好配置存储默认选用的库的文件名
+        sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "chosenLib");
+        sharedPreferencesHelper.put("WordLib",DEFAULT_WORDLIB);
+        sharedPreferencesHelper.put("QuizLib",DEFAULT_QUIZLIB);
+        sharedPreferencesHelper.put("WordLibList","");
+        sharedPreferencesHelper.put("QuizLibList","");
+
+
+        //        Button btn = findViewById(R.id.btn_modelSelect);
 //        btn.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v){
@@ -33,6 +48,12 @@ public class MainActivity extends Activity {
 //            }
 //        });
 
+//        //题库调用方式
+//        LibManager libManager = new LibManager(sharedPreferencesHelper,MainActivity.this);
+//        System.out.println(libManager.getChosenQuizLib());
+//        QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
+//        System.out.println(quizLib.getQuizzes().get(0).getAnswer());
+
         ListView list = (ListView)findViewById(R.id.list_select);
 
         ModelAdapter adapter = new ModelAdapter(this);
@@ -40,6 +61,7 @@ public class MainActivity extends Activity {
         adapter.add(new ModelInList("游戏一刻", "填字",R.drawable.main_game));
         adapter.add(new ModelInList("排行榜", "高手对决",R.drawable.main_rank));
         adapter.add(new ModelInList("记忆曲线", "？？？",R.drawable.main_curve));
+
 
         list.setAdapter(adapter);
 
