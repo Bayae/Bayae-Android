@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/study_abc_head"
+        layout="@layout/study_choices_head" />
+
+    <ListView
+        android:id="@+id/abcd_choice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/study_abc_head"
+        android:layout_marginTop="-3dp"
+        android:background="@color/colorBackground"
+        android:divider="#00000000" />
+
+
+</RelativeLayout>

@@ -2,10 +2,12 @@ package com.dudes.dexin.bayae.study;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,10 +16,10 @@ import android.widget.TextView;
 
 import com.dudes.dexin.bayae.ModelInList;
 import com.dudes.dexin.bayae.R;
+import com.dudes.dexin.bayae.study.ChoiceSelect;
 
 
 public class ModelSelect extends Activity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class ModelSelect extends Activity {
         TextView title = (TextView)findViewById(R.id.tv_title);
         title.setText("模式选择");
 
-        ListView list = (ListView)findViewById(R.id.list_select);
+        ListView list = (ListView)findViewById(R.id.model_list_select);
 
         ModelAdapter adapter = new ModelAdapter(this);
         adapter.add(new ModelInList("背书模式", "直接看答案",R.drawable.model_recite));
@@ -38,10 +40,28 @@ public class ModelSelect extends Activity {
         list.setAdapter(adapter);
 
         ImageButton btn = (ImageButton) findViewById(R.id.ib_title_back);
-        btn.setOnClickListener(new View.OnClickListener(){
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 ModelSelect.this.finish();
+            }
+        });
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(ModelSelect.this, ModelSelect.class);
+                switch (position) {
+                    case 0:
+                        i = new Intent(ModelSelect.this, ChoiceSelect.class);
+                        break;
+                    case 1:
+                        break;
+                    default:
+                        i = new Intent(ModelSelect.this, ModelSelect.class);
+                        break;
+                }
+                startActivity(i);
             }
         });
     }

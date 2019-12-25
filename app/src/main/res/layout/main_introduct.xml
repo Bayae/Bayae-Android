@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:background="@color/colorPrimary"
-    >
+    android:elevation="5dp">
 
     <ImageButton
         android:id="@+id/ib_title_back"
@@ -16,15 +15,14 @@
         android:src="@drawable/menu" />
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="背也"
-        android:textStyle="bold"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="背也"
         android:textColor="#fff"
         android:textSize="80sp"
-        android:id="@+id/tv_title"
-        />
+        android:textStyle="bold" />
 
 </RelativeLayout>
