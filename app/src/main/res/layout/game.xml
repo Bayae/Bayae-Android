@@ -77,8 +77,11 @@
             android:layout_alignTop="@id/divider2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="200dp"
+            android:gravity="center_horizontal"
+            android:imeOptions="actionDone"
             android:inputType="text"
-            android:minWidth="100dp" />
+            android:minWidth="100dp"
+            android:textCursorDrawable="@drawable/et_cursor" />
 
         <RelativeLayout
             android:id="@+id/bottomtext"
@@ -165,5 +168,4 @@
 
         </RelativeLayout>
     </RelativeLayout>
-
-    </RelativeLayout>
+</RelativeLayout>
