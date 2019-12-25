@@ -27,8 +27,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        accountText = (EditText) findViewById(R.id.account_text);
-        passwordText = (EditText) findViewById(R.id.password_text);
+        accountText = (EditText) findViewById(R.id.credential_text);
+        passwordText = (EditText) findViewById(R.id.rg_password_text);
         Button loginBtn = findViewById(R.id.login_btn);
         Button registerpageBtn= findViewById(R.id.register_page);
         loginBtn.setOnClickListener(this);
@@ -40,11 +40,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()) {
             //登陆按钮
             case R.id.login_btn:
-                String loginAccount = accountText.getText().toString();
+                String loginCredential = accountText.getText().toString();//读取用户名和密码
                 String loginPassword = passwordText.getText().toString();
-                System.out.println(loginAccount);
+                System.out.println(loginCredential);
                 System.out.println(loginPassword);
-                loginWithOkHttp(loginAccount,loginPassword);
+                loginWithOkHttp(loginCredential,loginPassword);
                 break;
             //注册按钮
             case R.id.register_page:
@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         OkHttpUtil.loginWithOkHttp(account, password, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.d("Login","登陆请求失败");
+                Log.d("Login","登录请求失败");
             }
 
             //请求成功，获取服务器返回数据
@@ -73,13 +73,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (responseData.equals("200")) {
-                            Toast.makeText(Login.this,"登陆成功",Toast.LENGTH_SHORT).show();
+                        if (responseData.contains("\"code\":200,\"msg\":\"ok\"")) {
+                            Toast.makeText(Login.this,"登录成功",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Login.this,MainActivity.class);
-                            intent.putExtra("login","登陆成功");
+                            intent.putExtra("login","登录成功");
                             startActivity(intent);
                         } else {
-                            Toast.makeText(Login.this,"登陆失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this,"登录失败",Toast.LENGTH_SHORT).show();
                         }
                         System.out.println(responseData);
                     }

@@ -19,9 +19,9 @@ import okhttp3.Response;
 
 public class Register extends AppCompatActivity {
 
-    private EditText accountText1;
-    private EditText passwordText1;
-    private EditText nicknameText1;
+    private EditText rg_email;
+    private EditText rg_password;
+    private EditText rg_username;
 
 
     @Override
@@ -29,16 +29,16 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        accountText1 = (EditText) findViewById(R.id.account_text);
-        passwordText1 = (EditText) findViewById(R.id.password_text);
-        nicknameText1=(EditText)findViewById(R.id.username);
-        Button Register_btn = (Button) findViewById(R.id.register_btn);
+        rg_email = (EditText) findViewById(R.id.rg_email_text);
+        rg_password = (EditText) findViewById(R.id.rg_password_text);
+        rg_username =(EditText)findViewById(R.id.rg_username_text);
+        Button Register_btn = (Button) findViewById(R.id.rg_button);
         Register_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String registerAccount = accountText1.getText().toString();
-                String registerPassword = passwordText1.getText().toString();
-                String registernickname = nicknameText1.getText().toString();
+                String registerAccount = rg_email.getText().toString();
+                String registerPassword = rg_password.getText().toString();
+                String registernickname = rg_username.getText().toString();
 
                 registerWithOkHttp(registerAccount,registerPassword,registernickname);
             }
@@ -63,7 +63,7 @@ public class Register extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (responseData.equals("200")) {
+                        if (responseData.contains("\"code\":200,\"msg\":\"ok\"")) {
                             Toast.makeText(Register.this,"注册成功",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Register.this,MainActivity.class);
                             intent.putExtra("login","注册成功");
