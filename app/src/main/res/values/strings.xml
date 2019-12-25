@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Bayae</string>
+    <string name="game_select">游戏</string>
+    <string name="game_name">填词高手</string>
+    <string name="game_next">下一个</string>
+    <string name="game_text">n.因素，要素</string>
+    <string name="finish">已完成</string>
+    <string name="rest_chance">剩余机会:</string>
+    <string name="chance">5</string>
+    <string name="background_photo">背景图片</string>
+    <string name="Return">返回</string>
+    <string name="icon">图标</string>
+    <string name="right">0</string>
+    <string name="all">10</string>
+    <string name="divider">/</string>
 </resources>
