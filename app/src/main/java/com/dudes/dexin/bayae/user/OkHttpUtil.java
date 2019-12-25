@@ -7,27 +7,28 @@ import okhttp3.RequestBody;
 
 public class OkHttpUtil {
     //登陆请求
-    public static void loginWithOkHttp(String account,String password,okhttp3.Callback callback) {
+    public static void loginWithOkHttp(String credential,String password,okhttp3.Callback callback) {
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
-                .add("loginAccount",account)
-                .add("loginPassword",password)
+                .add("credential",credential)
+                .add("password",password)
                 .build();
         Request request = new Request.Builder()
-                .url( "http://111.111.11.111:8081/AndroidLogin/LoginServlet")
+                .url( "http://67.209.183.5/bayae/user/login")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(callback);
     }
     //注册请求
-    public static void registerWithOkHttp(String account,String password,okhttp3.Callback callback) {
+    public static void registerWithOkHttp(String email,String password,String username,okhttp3.Callback callback) {
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
-                .add("registerAccount",account)
-                .add("registerPassword",password)
+                .add("email",email)
+                .add("password",password)
+                .add("username",username )
                 .build();
         Request request = new Request.Builder()
-                .url("http://111.111.11.111:8081/AndroidLogin/RegisterServlet")
+                .url("http://67.209.183.5/bayae/user/register")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(callback);

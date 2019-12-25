@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/image" />
 
     <EditText
-        android:id="@+id/etext_account"
+        android:id="@+id/account_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -35,7 +35,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/etext_password"
+        android:id="@+id/password_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -55,7 +55,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/register_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="320dp"

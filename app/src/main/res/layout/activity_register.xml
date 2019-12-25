@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true" />
 
     <EditText
-        android:id="@+id/etext_account"
+        android:id="@+id/account_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -26,7 +26,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/etext_password"
+        android:id="@+id/password_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -35,19 +35,20 @@
         android:inputType="textPersonName"
         android:text="密码："
         android:textSize="24sp" />
+
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="210dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="确认密码："
+        android:text="用户名："
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"

@@ -13,7 +13,7 @@ import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.R;
 
 import java.io.IOException;
-import okhttp3.Callback;
+
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -27,12 +27,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        accountText = (EditText) findViewById(R.id.etext_account);
-        passwordText = (EditText) findViewById(R.id.etext_password);
+        accountText = (EditText) findViewById(R.id.account_text);
+        passwordText = (EditText) findViewById(R.id.password_text);
         Button loginBtn = findViewById(R.id.login_btn);
-        Button registerBtn= findViewById(R.id.register_btn);
+        Button registerpageBtn= findViewById(R.id.register_page);
         loginBtn.setOnClickListener(this);
-        registerBtn.setOnClickListener(this);
+        registerpageBtn.setOnClickListener(this);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 loginWithOkHttp(loginAccount,loginPassword);
                 break;
             //注册按钮
-            case R.id.register_btn:
+            case R.id.register_page:
                 Intent i = new Intent(Login.this, Register.class);
                 startActivity(i);
                 break;
@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (responseData.equals("true")) {
+                        if (responseData.equals("200")) {
                             Toast.makeText(Login.this,"登陆成功",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Login.this,MainActivity.class);
                             intent.putExtra("login","登陆成功");
@@ -79,6 +79,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                         } else {
                             Toast.makeText(Login.this,"登陆失败",Toast.LENGTH_SHORT).show();
                         }
+                        System.out.println(responseData);
                     }
                 });
             }
