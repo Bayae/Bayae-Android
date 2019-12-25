@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.model.ModelInList;
 import com.dudes.dexin.bayae.study.ModelSelect;
 import com.dudes.dexin.bayae.user.User_Info;
 
@@ -25,8 +26,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       ImageButton btn = findViewById(R.id.ib_title_back);
-       btn.setOnClickListener(new View.OnClickListener(){
+        ImageButton btn = findViewById(R.id.ib_title_back);
+        btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent it = new Intent();

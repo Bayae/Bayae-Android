@@ -42,6 +42,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             case R.id.login_btn:
                 String loginAccount = accountText.getText().toString();
                 String loginPassword = passwordText.getText().toString();
+                System.out.println(loginAccount);
+                System.out.println(loginPassword);
                 loginWithOkHttp(loginAccount,loginPassword);
                 break;
             //注册按钮
