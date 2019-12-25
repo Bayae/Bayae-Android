@@ -1,7 +1,6 @@
 package com.dudes.dexin.bayae;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import com.dudes.dexin.bayae.model.Quiz;
 import com.dudes.dexin.bayae.model.QuizLib;
 
@@ -13,7 +12,8 @@ import java.util.List;
 public class TestQuizLib {
     @Test
     public void test(){
-        QuizLib qlib = new QuizLib(1, "英语单词选择", 0);//选择题
+        QuizLib qlib = new QuizLib(1, "elc1");
+
 
         Quiz q1 = new Quiz(1);
         /*注意题目的各部分，存入是都是字符串*/
@@ -29,9 +29,7 @@ public class TestQuizLib {
         //answer
         q1.setAnswer("0"); //第一个选项
 
-//        System.out.println(qlib.getType()); //0
 
-        qlib.setType(1); //重新设置类型，填空题
         Quiz q2 = new Quiz(2);
         q2.setDescription("你是个____和____的人");
         opt = new ArrayList<>();
@@ -43,25 +41,11 @@ public class TestQuizLib {
         q2.setAnswer("43"); //傻憨逗比
 
         //初始化完毕，加入库
-        qlib.add(q1);
-        qlib.add(q2);
+        qlib.addMultChoiceQuestion(q1);
+        qlib.addFillBlankQuestion(q2);
 
         String qLibObjectToJson = JSON.toJSONString(qlib);
         System.out.println(qLibObjectToJson);
-
-        QuizLib qLibJsonToObject = JSON.parseObject(qLibObjectToJson,new TypeReference<QuizLib>(){});
-        Integer libId = qLibJsonToObject.getId();
-        String libName = qLibJsonToObject.getName();
-        Integer libNum = qLibJsonToObject.getNum();
-        Integer libType = qLibJsonToObject.getType();
-        List<Quiz> quizList = qLibJsonToObject.getQuizzes();
-
-//        MyInternalStorage myInternalStorage = new MyInternalStorage()
-        System.out.println(libNum);
-        System.out.println(quizList.get(0).getAnswer());
-        System.out.println(quizList.get(0).getOpt().get(0));
-
-
 
 
 //

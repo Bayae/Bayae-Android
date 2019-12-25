@@ -14,18 +14,33 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
 import com.dudes.dexin.bayae.model.ModelInList;
 import com.dudes.dexin.bayae.study.ModelSelect;
 import com.dudes.dexin.bayae.user.User_Info;
 
 public class MainActivity extends Activity {
-
+    private SharedPreferencesHelper sharedPreferencesHelper;
+    public String DEFAULT_WORDLIB = "raw/elc1.txt";
+    public String DEFAULT_QUIZLIB = "elc1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
 
+    private void init(){
+        //通过用户偏好配置存储默认选用的库的文件名
+        sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "chosenLib");
+        sharedPreferencesHelper.put("WordLib",DEFAULT_WORDLIB);
+        sharedPreferencesHelper.put("QuizLib",DEFAULT_QUIZLIB);
+        sharedPreferencesHelper.put("WordLibList","");
+        sharedPreferencesHelper.put("QuizLibList","");
+
+        //个人信息模块
         ImageButton btn = findViewById(R.id.ib_title_back);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -36,6 +51,13 @@ public class MainActivity extends Activity {
             }
         });
 
+//        //题库调用方式
+//        LibManager libManager = new LibManager(sharedPreferencesHelper,MainActivity.this);
+//        System.out.println(libManager.getChosenQuizLib());
+//        QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
+//        System.out.println(quizLib.getFillBlankQuestions().get(0).getAnswer());
+
+        //listview，各大模块入口
         ListView list = (ListView)findViewById(R.id.list_select);
 
         ModelAdapter adapter = new ModelAdapter(this);
