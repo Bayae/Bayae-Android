@@ -2,6 +2,7 @@ package com.dudes.dexin.bayae.study;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,18 +39,14 @@ public class ChoiceSelect extends Activity{
         sharedPreferencesHelper = new SharedPreferencesHelper(ChoiceSelect.this,"Lib");
         LibManager libManager = new LibManager(sharedPreferencesHelper,ChoiceSelect.this);
         QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
-        List<Quiz> quizList = quizLib.getMultChoiceQuestions();
-        int currentQuizId = initLib(quizList);
+        final List<Quiz> quizList = quizLib.getMultChoiceQuestions();
+        final int currentQuizId = initLib(quizList);
 
         TextView title = (TextView)findViewById(R.id.tv_study_title);
         title.setText(quizList.get(currentQuizId-1).getDescription());
 
         String answer_String = quizList.get(currentQuizId-1).getAnswer();
         final String[] answer = answer_String.split("");
-        System.out.println("cuan\n"+answer_String);
-        for (String letter: answer) {
-            System.out.println("ans = "+letter);
-        }
 
         final ListView list = (ListView)findViewById(R.id.abcd_choice);
 
@@ -150,13 +147,14 @@ public class ChoiceSelect extends Activity{
             }
         });
 
-        Button submit = (Button)findViewById(R.id.button_submit);
+        final Button submit = (Button)findViewById(R.id.button_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (enable_check){
                     enable_check = false;
                     enable_choose = false;
+                    submit.setTextColor(Color.parseColor("#BDBDBD"));
                     int[] ans = new int[flag.length];
                     for (int i = 0; i < answer.length - 1; i++) {
                         System.out.println(Integer.parseInt(answer[i + 1]));
@@ -303,6 +301,24 @@ public class ChoiceSelect extends Activity{
                     TextView txWrong = (TextView)findViewById(R.id.wrong_num);
                     txRight.setText("正确"+numRight);
                     txWrong.setText("错误"+numWrong);
+                }
+            }
+        });
+
+        final Button btnNext = (Button)findViewById(R.id.button_next);
+        btnNext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(currentQuizId<quizLib.getNumofMCQ()){
+                    currentQuizId++;
+                    title.setText(quizList.get(currentQuizId-1).getDescription());
+                    adapter = new ModelAdapter(ChoiceSelect.this);
+                    int i = 1;
+                    for (String opt:quizList.get(currentQuizId-1).getOpt()){
+                        adapter.add(new ChoiceInList(opt,getDrawableId(i)));
+                        i++;
+                    }
+                    list.setAdapter(adapter);
                 }
             }
         });
