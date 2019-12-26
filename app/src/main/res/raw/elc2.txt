@@ -1,0 +1,47 @@
+{
+  "id": 2,
+  "name": "elc2",
+  "numofFBQ": 3,
+  "numofMCQ": 3,
+
+  "fillBlankQuestions": [{
+    "answer": "24",
+    "description": "There is a ____ bridge over the ____..",
+    "id": 1,
+    "opt": ["clear", "suspension", "mountain", "river"],
+    "status": 0
+  }, {
+    "answer": "2",
+    "description": "He is ____ to his brother in math.",
+    "id": 2,
+    "opt": ["higher", "superior", "taller", "good"],
+    "status": 0
+  }, {
+    "answer": "4",
+    "description": "I ____ a few words on to the letter.",
+    "id": 3,
+    "opt": ["unwise", "occupy", "chore", "tack"],
+    "status": 0
+  }],
+
+  "multChoiceQuestions": [{
+    "answer": "12",
+    "description": "silde的意思:",
+    "id": 4,
+    "opt": ["n.幻灯片；滑梯", "v.（使）滑动；下滑", "n.滑板", "adj.光滑的"],
+    "status": 0
+  }, {
+    "answer": "134",
+    "description": "stall的意思:",
+    "id": 5,
+    "opt": ["n.小隔间；摊位；牲畜棚", "adj.高的", "v.停顿；（使）熄火", "v.故意拖延"],
+    "status": 0
+  }, {
+    "answer": "123",
+    "description": "subordinate的意思:",
+    "id": 6,
+    "opt": ["n.下属；从属物", "v.使居于次要", "adj.次要的；附属的", "n.坐标"],
+    "status": 0
+  }]
+
+}

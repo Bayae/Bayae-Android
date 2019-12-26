@@ -8,33 +8,79 @@ import java.util.List;
 public class QuizLib {
     private int id;
     private String name;//库的名字
-    private int num;//题目数量
-    private int type; //题型：0-选择题，1-填空题
-    private List<Quiz> quizzes; //题目
+    private int numofFBQ;//填空题数量
+    private int numofMCQ;//选择题数量
+    private List<Quiz> fillBlankQuestions; //填空题
+    private List<Quiz> multChoiceQuestions;//选择题
 
     //无参构造方法，javaBean规范
     public QuizLib(){
-        this.num = 0;
-        this.quizzes = new ArrayList<>();
+        this.numofFBQ = 0;
+        this.numofMCQ = 0;
+        this.fillBlankQuestions = new ArrayList<>();
+        this.multChoiceQuestions = new ArrayList<>();
     }
 
     // 初始化题库
-    public QuizLib(int id, String name, int type){
+    public QuizLib(int id, String name){
         this.id = id;
         this.name = name;
-        this.num = 0;
-        this.type = type;
-        this.quizzes = new ArrayList<>();
+        this.numofFBQ = 0;
+        this.numofMCQ = 0;
+        this.fillBlankQuestions = new ArrayList<>();
+        this.multChoiceQuestions = new ArrayList<>();
+    }
+    //添加填空题目
+    public void addFillBlankQuestion(Quiz quiz){
+        this.fillBlankQuestions.add(quiz);
+        this.numofFBQ++;
+    }
+
+    //根据id, 删除题目
+    public int deleteFillBlankQuestion(int id){
+        if ((numofFBQ > 0) && (id <= numofFBQ)){
+            Iterator<Quiz> it = this.fillBlankQuestions.iterator();
+            while(it.hasNext()){
+                int i = it.next().getId();
+                if(i == id){
+                    it.remove();
+                }
+            }
+            numofFBQ--; //自减
+            return 1;
+        }
+        return 0;
+    }
+
+    //添加选择题目
+    public void addMultChoiceQuestion(Quiz quiz){
+        this.multChoiceQuestions.add(quiz);
+        this.numofMCQ++;
+    }
+
+    //根据id, 删除题目
+    public int deleteMultChoiceQuestion(int id){
+        if ((numofMCQ > 0) && (id <= numofMCQ)){
+            Iterator<Quiz> it = this.multChoiceQuestions.iterator();
+            while(it.hasNext()){
+                int i = it.next().getId();
+                if(i == id){
+                    it.remove();
+                }
+            }
+            numofMCQ--; //自减
+            return 1;
+        }
+        return 0;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId() {
+    public void setId(int id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -44,53 +90,35 @@ public class QuizLib {
         this.name = name;
     }
 
-    public int getNum() {
-        return num;
+    public int getNumofFBQ() {
+        return numofFBQ;
     }
 
-    public void setNum(int num){
-        this.num = num;
+    public void setNumofFBQ(int numofFBQ) {
+        this.numofFBQ = numofFBQ;
     }
 
-    public int getType() {
-        return type;
+    public int getNumofMCQ() {
+        return numofMCQ;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setNumofMCQ(int numofMCQ) {
+        this.numofMCQ = numofMCQ;
     }
 
-    public List<Quiz> getQuizzes() {
-        return quizzes;
+    public List<Quiz> getFillBlankQuestions() {
+        return fillBlankQuestions;
     }
 
-    public void setQuizzes(List<Quiz> quizzes){
-        this.quizzes = quizzes;
+    public void setFillBlankQuestions(List<Quiz> fillBlankQuestions) {
+        this.fillBlankQuestions = fillBlankQuestions;
     }
 
-
-    //添加题目
-    public void add(Quiz quiz){
-        this.quizzes.add(quiz);
-        this.num++;
+    public List<Quiz> getMultChoiceQuestions() {
+        return multChoiceQuestions;
     }
 
-    //根据id, 删除题目
-    public int delete(int id){
-        if ((num > 0) && (id <= num)){
-            Iterator<Quiz> it = this.quizzes.iterator();
-            while(it.hasNext()){
-                int i = it.next().getId();
-                if(i == id){
-                    it.remove();
-                }
-            }
-            num--; //自减
-            return 1;
-        }
-        return 0;
+    public void setMultChoiceQuestions(List<Quiz> multChoiceQuestions) {
+        this.multChoiceQuestions = multChoiceQuestions;
     }
-
-
-
 }

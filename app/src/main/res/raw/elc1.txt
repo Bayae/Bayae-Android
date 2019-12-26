@@ -1,0 +1,1 @@
+{"fillBlankQuestions":[{"answer":"43","description":"你是个____和____的人","id":2,"opt":["温柔","磁性","逗比","傻憨"],"status":0}],"id":1,"multChoiceQuestions":[{"answer":"0","description":"Scale的意思:","id":1,"opt":["n.规模；等级；比例；刻度","vt.攀登","n.吃饭","adv.更多地"],"status":0}],"name":"elc1","numofFBQ":1,"numofMCQ":1}
