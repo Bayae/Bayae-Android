@@ -34,7 +34,7 @@ public class ChoiceSelect extends Activity{
         adapter.add(new ChoiceInList("做鬼得完", R.drawable.d_wrong));
         adapter.add(new ChoiceInList("做得完我跟李大爷姓", R.drawable.e_half));
         adapter.add(new ChoiceInList("哔——————————（爆粗消音9999字）" +
-                "软工屁事真的多，实验又难、项目又难、还TM有考试，让不让人活了！！！", R.drawable.f_unselect));
+                "软工屁事真的多，实验又难、项目又难、还TM有考试，让不让人活了！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！让不让人活了让不让人活了让不让人活了让不让人活了让不让人活了", R.drawable.f_unselect));
 
         list.setAdapter(adapter);
 

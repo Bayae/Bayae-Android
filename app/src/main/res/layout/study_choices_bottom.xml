@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:orientation="vertical">
+    android:elevation="5dp"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
-        android:orientation="horizontal"
-        android:paddingTop="5dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_previous"
@@ -24,7 +25,7 @@
             android:background="@drawable/my_button_bg"
             android:text="上一题"
             android:textColor="@color/colorPrimaryText"
-            tools:textSize="20sp" />
+            tools:textSize="20dp" />
 
         <Button
             android:id="@+id/button_submit"
@@ -37,7 +38,7 @@
             android:background="@drawable/my_button_bg"
             android:text="答题"
             android:textColor="@color/colorDivider"
-            tools:textSize="20sp" />
+            tools:textSize="20dp" />
 
         <Button
             android:id="@+id/button_next"
@@ -49,44 +50,46 @@
             android:background="@drawable/my_button_bg"
             android:text="下一题"
             android:textColor="@color/colorPrimaryText"
-            tools:textSize="20sp" />
+            tools:textSize="20dp" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorBackground"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp">
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp">
 
         <TextView
             android:id="@+id/correct_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:layout_weight="1"
             android:text="正确10"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="20sp"
-            app:lineHeight="25dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/vs_line"
-            android:layout_width="256dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/correct_num"
+            android:layout_weight="3"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/correct"
                 android:layout_width="0dp"
-                android:layout_height="25dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="10" />
 
             <Button
                 android:id="@+id/wrong"
                 android:layout_width="0dp"
-                android:layout_height="21dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -95,12 +98,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:layout_toRightOf="@id/vs_line"
-            android:text="错误10"
+            android:layout_weight="1"
+            android:text="错误1"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="20sp"
-            app:lineHeight="25dp" />
-    </RelativeLayout>
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </LinearLayout>
