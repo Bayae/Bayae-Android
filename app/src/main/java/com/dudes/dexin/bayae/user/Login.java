@@ -37,7 +37,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         title.setText("登录界面");
 
         ImageButton btn = (ImageButton) findViewById(R.id.ib_title_back);
-        btn.setVisibility(View.INVISIBLE);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Login.this.finish();
+            }
+        });
 
 
         accountText = (EditText) findViewById(R.id.credential_text);
