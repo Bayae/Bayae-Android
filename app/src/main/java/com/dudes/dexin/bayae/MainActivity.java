@@ -21,7 +21,7 @@ import com.dudes.dexin.bayae.user.User_Info;
 
 public class MainActivity extends Activity {
     private SharedPreferencesHelper sharedPreferencesHelper;
-    public String DEFAULT_WORDLIB = "raw/elc1.txt";
+    public String DEFAULT_WORDLIB = "cet4";
     public String DEFAULT_QUIZLIB = "elc1";
 
     @Override
@@ -34,11 +34,11 @@ public class MainActivity extends Activity {
 
     private void init(){
         //通过用户偏好配置存储默认选用的库的文件名
-        sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "chosenLib");
-        sharedPreferencesHelper.put("WordLib",DEFAULT_WORDLIB);
-        sharedPreferencesHelper.put("QuizLib",DEFAULT_QUIZLIB);
-        sharedPreferencesHelper.put("WordLibList","");
-        sharedPreferencesHelper.put("QuizLibList","");
+        sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "Lib");
+        sharedPreferencesHelper.put("ChosenWordLib",DEFAULT_WORDLIB);
+        sharedPreferencesHelper.put("ChosenQuizLib",DEFAULT_QUIZLIB);
+        sharedPreferencesHelper.put("WordLibList","cet4");
+        sharedPreferencesHelper.put("QuizLibList","elc1,elc2");
 
         //个人信息模块
         ImageButton btn = findViewById(R.id.ib_title_back);
@@ -56,6 +56,10 @@ public class MainActivity extends Activity {
 //        System.out.println(libManager.getChosenQuizLib());
 //        QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
 //        System.out.println(quizLib.getFillBlankQuestions().get(0).getAnswer());
+//
+//        //词库调用方式
+//        WordLib wordLib = libManager.getWordLib(libManager.getChosenWordLib());
+//        System.out.println(wordLib.getWords().get(0).getMeaning());
 
         //listview，各大模块入口
         ListView list = (ListView)findViewById(R.id.list_select);

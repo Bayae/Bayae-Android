@@ -23,14 +23,24 @@ public class LibManager {
         this.context = context;
     }
 
+    //修改选取词库
+    public void changeChosenQuizLib(String quizLib){
+        sharedPreferencesHelper.update("ChosenQuizLib",quizLib);
+    }
+
+    //修改选取题库
+    public void changeChosenWordLib(String wordLib){
+        sharedPreferencesHelper.update("ChosenWordLib",wordLib);
+    }
+
     //获得当前选择的题库的名字
     public String getChosenQuizLib(){
-        return sharedPreferencesHelper.getSharedPreference("QuizLib","").toString();
+        return sharedPreferencesHelper.getSharedPreference("ChosenQuizLib","").toString();
     }
 
     //通过用户偏好配置获得当前选取的词库的名字
     public String getChosenWordLib(){
-        return sharedPreferencesHelper.getSharedPreference("WordLib","").toString();
+        return sharedPreferencesHelper.getSharedPreference("ChosenWordLib","").toString();
     }
 
     //获得词库列表

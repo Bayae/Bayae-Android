@@ -67,6 +67,14 @@ public class SharedPreferencesHelper {
     }
 
     /**
+     * 移除某个key值已经对应的值
+     */
+    public void update(String key,Object object) {
+        remove(key);
+        put(key,object);
+    }
+
+    /**
      * 清除所有数据
      */
     public void clear() {

@@ -12,7 +12,7 @@ import java.util.List;
 public class TestQuizLib {
     @Test
     public void test(){
-        QuizLib qlib = new QuizLib(1, "elc1");
+        QuizLib qlib = new QuizLib(1, "Elc1");
 
 
         Quiz q1 = new Quiz(1);
