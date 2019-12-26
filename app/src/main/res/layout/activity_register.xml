@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingTop="150dp">
+        android:paddingTop="200dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -62,13 +62,23 @@
             android:ems="10"
             android:hint="密码"
             android:inputType="textPassword" />
+
+        <ToggleButton
+            android:id="@+id/togglePwd"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_pwd_selector"
+            android:padding="10dp"
+            android:textOff=""
+            android:textOn="" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="200dp">
+        android:paddingTop="150dp">
 
         <TextView
             android:id="@+id/textView5"
@@ -88,11 +98,45 @@
             android:inputType="textPersonName" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="250dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认密码："
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/rg_Cf_password_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="请再次输入密码"
+            android:inputType="textPassword" />
+
+        <ToggleButton
+            android:id="@+id/toggleConfirmPwd"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_pwd_selector"
+            android:padding="10dp"
+            android:textOff=""
+            android:textOn="" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/rg_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="300dp"
         android:text="注册"
         android:textSize="24sp" />
 

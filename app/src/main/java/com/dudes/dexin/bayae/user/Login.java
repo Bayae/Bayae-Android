@@ -2,12 +2,18 @@ package com.dudes.dexin.bayae.user;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.R;
@@ -27,6 +33,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        TextView title = (TextView)findViewById(R.id.tv_title);
+        title.setText("登录界面");
+
+        ImageButton btn = (ImageButton) findViewById(R.id.ib_title_back);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Login.this.finish();
+            }
+        });
+
 
         accountText = (EditText) findViewById(R.id.credential_text);
         passwordText = (EditText) findViewById(R.id.rg_password_text);
@@ -34,6 +51,21 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         Button registerpageBtn= findViewById(R.id.register_page);
         loginBtn.setOnClickListener(this);
         registerpageBtn.setOnClickListener(this);
+
+        ToggleButton togglePwd = (ToggleButton) findViewById(R.id.togglePwd_lg);
+        togglePwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //如果选中，显示密码
+                    passwordText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    //否则隐藏密码
+                    passwordText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
     }
 
     @Override

@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
 import com.dudes.dexin.bayae.game.game_select;
 import com.dudes.dexin.bayae.model.ModelInList;
-import com.dudes.dexin.bayae.study.ChoiceSelect;
 import com.dudes.dexin.bayae.study.ModelSelect;
 import com.dudes.dexin.bayae.user.User_Info;
 
@@ -32,8 +31,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        Intent intent = new Intent(MainActivity.this, ChoiceSelect.class);
-        startActivity(intent);
     }
 
     private void init(){

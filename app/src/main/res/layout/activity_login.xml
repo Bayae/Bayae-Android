@@ -24,9 +24,10 @@
         app:srcCompat="@drawable/image" />
 
     <LinearLayout
+        android:id="@+id/layout_Credential"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="210dp">
+        android:paddingTop="200dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,18 +38,19 @@
 
         <EditText
             android:id="@+id/credential_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="请输入用户名或邮箱"
             android:inputType="text" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout_Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="260dp"
-        android:paddingBottom="30dp">
+        android:paddingTop="260dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,10 +61,21 @@
 
         <EditText
             android:id="@+id/rg_password_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="请输入密码"
             android:inputType="textPassword" />
+
+        <ToggleButton
+            android:id="@+id/togglePwd_lg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_pwd_selector"
+            android:padding="10dp"
+            android:textOff=""
+            android:textOn="" />
     </LinearLayout>
 
     <Button
