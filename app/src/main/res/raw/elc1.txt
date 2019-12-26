@@ -27,19 +27,19 @@
   "multChoiceQuestions": [{
     "answer": "12",
     "description": "scale的意思:",
-    "id": 4,
+    "id": 1,
     "opt": ["n.规模；等级；比例；刻度", "v.攀登", "n.吃饭", "adv.更多地"],
     "status": 0
   }, {
     "answer": "23",
     "description": "serial的意思:",
-    "id": 5,
+    "id": 2,
     "opt": ["n.种子", "adj.连续的；连环的", "n.连续剧，连载小说", "adj.严肃的"],
     "status": 0
   }, {
     "answer": "14",
     "description": "shutter的意思:",
-    "id": 6,
+    "id": 3,
     "opt": ["n.百叶窗", "v.打倒", "n.子弹", "n.相机的快门"],
     "status": 0
   }]

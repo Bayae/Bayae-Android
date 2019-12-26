@@ -27,19 +27,19 @@
   "multChoiceQuestions": [{
     "answer": "12",
     "description": "silde的意思:",
-    "id": 4,
+    "id": 1,
     "opt": ["n.幻灯片；滑梯", "v.（使）滑动；下滑", "n.滑板", "adj.光滑的"],
     "status": 0
   }, {
     "answer": "134",
     "description": "stall的意思:",
-    "id": 5,
+    "id": 2,
     "opt": ["n.小隔间；摊位；牲畜棚", "adj.高的", "v.停顿；（使）熄火", "v.故意拖延"],
     "status": 0
   }, {
     "answer": "123",
     "description": "subordinate的意思:",
-    "id": 6,
+    "id": 3,
     "opt": ["n.下属；从属物", "v.使居于次要", "adj.次要的；附属的", "n.坐标"],
     "status": 0
   }]
