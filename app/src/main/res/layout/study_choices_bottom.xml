@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
+    android:background="@color/colorBackground"
     android:elevation="5dp"
     android:orientation="vertical"
     android:paddingTop="5dp">
@@ -24,7 +25,7 @@
             android:layout_weight="1"
             android:background="@drawable/my_button_bg"
             android:text="上一题"
-            android:textColor="@color/colorPrimaryText"
+            android:textColor="@color/colorDivider"
             tools:textSize="20dp" />
 
         <Button
@@ -37,7 +38,7 @@
             android:layout_weight="1"
             android:background="@drawable/my_button_bg"
             android:text="答题"
-            android:textColor="@color/colorDivider"
+            android:textColor="@color/colorPrimaryText"
             tools:textSize="20dp" />
 
         <Button
@@ -66,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_weight="1"
-            android:text="正确10"
+            android:text="正确0"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
             android:textSize="20sp" />
@@ -81,16 +82,18 @@
             <Button
                 android:id="@+id/correct"
                 android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="10" />
+                android:layout_height="10dp"
+                android:layout_marginTop="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/correct_bar" />
 
             <Button
                 android:id="@+id/wrong"
                 android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1" />
+                android:layout_height="10dp"
+                android:layout_marginTop="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/wrong_bar" />
         </LinearLayout>
 
         <TextView
@@ -99,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_weight="1"
-            android:text="错误1"
+            android:text="错误0"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
             android:textSize="20sp" />
