@@ -28,10 +28,12 @@
         android:id="@+id/setting_bank"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:scaleType="fitXY"
-        android:layout_marginLeft="300dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="225dp"
+        android:layout_marginRight="30dp"
         android:background="@null"
+        android:elevation="6dp"
+        android:scaleType="fitXY"
         android:src="@drawable/setting_bank" />
 
 

@@ -9,30 +9,74 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
+import com.dudes.dexin.bayae.libUI.LibSelect;
+import com.dudes.dexin.bayae.model.ModelInList;
+import com.dudes.dexin.bayae.study.ChoiceSelect;
 import com.dudes.dexin.bayae.study.ModelSelect;
+import com.dudes.dexin.bayae.user.User_Info;
 
 public class MainActivity extends Activity {
-
+    private SharedPreferencesHelper sharedPreferencesHelper;
+    public String DEFAULT_WORDLIB = "cet4";
+    public String DEFAULT_QUIZLIB = "elc1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+        Intent intent = new Intent(MainActivity.this, ChoiceSelect.class);
+        startActivity(intent);
+    }
 
-//        Button btn = findViewById(R.id.btn_modelSelect);
-//        btn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent it = new Intent();
-//                it.setClass(MainActivity.this, ModelSelect.class);
-//                MainActivity.this.startActivity(it);
-//            }
-//        });
+    private void init(){
+        //通过用户偏好配置存储默认选用的库的文件名
+        sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "Lib");
+        sharedPreferencesHelper.put("ChosenWordLib",DEFAULT_WORDLIB);
+        sharedPreferencesHelper.put("ChosenQuizLib",DEFAULT_QUIZLIB);
+        sharedPreferencesHelper.put("WordLibList","cet4");
+        sharedPreferencesHelper.put("QuizLibList","elc1,elc2");
 
+        //个人信息模块
+        ImageButton btn = findViewById(R.id.ib_title_back);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent it = new Intent();
+                it.setClass(MainActivity.this, User_Info.class);
+                MainActivity.this.startActivity(it);
+            }
+        });
+
+        //库模块
+        ImageButton btn2 = findViewById(R.id.setting_bank);
+        btn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent it = new Intent();
+                it.setClass(MainActivity.this, LibSelect.class);
+                MainActivity.this.startActivity(it);
+            }
+        });
+
+//        //题库调用方式
+//        LibManager libManager = new LibManager(sharedPreferencesHelper,MainActivity.this);
+//        System.out.println(libManager.getChosenQuizLib());
+//        QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
+//        System.out.println(quizLib.getFillBlankQuestions().get(0).getAnswer());
+//
+//        //词库调用方式
+//        WordLib wordLib = libManager.getWordLib(libManager.getChosenWordLib());
+//        System.out.println(wordLib.getWords().get(0).getMeaning());
+
+        //listview，各大模块入口
         ListView list = (ListView)findViewById(R.id.list_select);
 
         ModelAdapter adapter = new ModelAdapter(this);

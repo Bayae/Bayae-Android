@@ -1,4 +1,4 @@
-package com.dudes.dexin.bayae;
+package com.dudes.dexin.bayae.model;
 
 public class ModelInList {
     public String name;

@@ -28,7 +28,14 @@
         android:scaleType="fitXY"
         android:layout_marginLeft="325dp"
         android:layout_marginTop="600dp"
+<<<<<<< Updated upstream
         android:background="@null"
         //android:src="@drawable/add_lib_button" />
 
+=======
+        android:background="@null"/>
+        //android:src="@drawable/add_lib_button" />
+
+
+>>>>>>> Stashed changes
 </RelativeLayout>
