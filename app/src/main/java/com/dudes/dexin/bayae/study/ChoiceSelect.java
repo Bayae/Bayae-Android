@@ -2,16 +2,21 @@ package com.dudes.dexin.bayae.study;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.study.ChoiceInList;
 import com.dudes.dexin.bayae.R;
 
@@ -25,9 +30,9 @@ public class ChoiceSelect extends Activity{
         TextView title = (TextView)findViewById(R.id.tv_study_title);
         title.setText("要考试了，很想知道：背也能不能按时完成？");
 
-        ListView list = (ListView)findViewById(R.id.abcd_choice);
+        final ListView list = (ListView)findViewById(R.id.abcd_choice);
 
-        ModelAdapter adapter = new ModelAdapter(this);
+        final ModelAdapter adapter = new ModelAdapter(this);
         adapter.add(new ChoiceInList("做不完", R.drawable.a_unselect));
         adapter.add(new ChoiceInList("肯定做不完", R.drawable.b_unselect));
         adapter.add(new ChoiceInList("绝对做不完", R.drawable.c_unselect));
@@ -43,6 +48,62 @@ public class ChoiceSelect extends Activity{
             @Override
             public void onClick(View v) {
                 ChoiceSelect.this.finish();
+            }
+        });
+
+        final int[] flag = new int[6];
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                LinearLayout layout = (LinearLayout)list.getChildAt(position);
+                ImageView img = (ImageView)layout.findViewById(R.id.choice_img);
+                switch (position){
+                    case 0:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.a_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.a_unselect);
+                        }
+                        break;
+                    case 1:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.b_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.b_unselect);
+                        }
+                        break;
+                    case 2:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.c_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.c_unselect);
+                        }
+                        break;
+                    case 3:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.d_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.d_unselect);
+                        }
+                        break;
+                    case 4:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.e_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.e_unselect);
+                        }
+                        break;
+                    case 5:
+                        if (flag[position] == 0) {
+                            img.setImageResource(R.drawable.f_selected);
+                        }else if (flag[position] == 1) {
+                            img.setImageResource(R.drawable.f_unselect);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                flag[position] = (flag[position] + 1) % 2;
             }
         });
     }
@@ -73,38 +134,3 @@ public class ChoiceSelect extends Activity{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
