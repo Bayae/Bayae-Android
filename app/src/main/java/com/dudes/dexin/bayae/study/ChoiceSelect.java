@@ -28,6 +28,7 @@ public class ChoiceSelect extends Activity{
     private int numRight;
     private int numWrong;
     private boolean enable_choose = true;
+    private boolean enable_check = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +44,11 @@ public class ChoiceSelect extends Activity{
         TextView title = (TextView)findViewById(R.id.tv_study_title);
         title.setText(quizList.get(currentQuizId-1).getDescription());
 
-        final String[] answer = quizList.get(currentQuizId-1).getAnswer().split("");
-        System.out.println("cuan"+quizList.get(currentQuizId-1).getAnswer());
+        String answer_String = quizList.get(currentQuizId-1).getAnswer();
+        final String[] answer = answer_String.split("");
+        System.out.println("cuan\n"+answer_String);
         for (String letter: answer) {
-            System.out.println(letter);
+            System.out.println("ans = "+letter);
         }
 
         final ListView list = (ListView)findViewById(R.id.abcd_choice);
@@ -87,10 +89,10 @@ public class ChoiceSelect extends Activity{
 
         TextView txRight = (TextView)findViewById(R.id.correct_num);
         TextView txWrong = (TextView)findViewById(R.id.wrong_num);
-        txRight.setText("正确"+ numRight);
+        txRight.setText("正确"+numRight);
         txWrong.setText("错误"+numWrong);
 
-        final int[] flag = new int[6];
+        final int[] flag = new int[quizList.get(currentQuizId-1).getOpt().size()];
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -152,128 +154,155 @@ public class ChoiceSelect extends Activity{
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enable_choose = false;
-                int[] ans = new int[flag.length];
-                for (int i = 0; i < flag.length; i++) {
-                    int index = Integer.parseInt(answer[i]) - 1;
-                    ans[index] = 1;
-                }
-                boolean flag_allcorrect = true;
-                for (int i = 0; i < flag.length; i++) {
-                    if (flag[i] != ans[i]) {
-                        flag_allcorrect = false;
-                        break;
+                if (enable_check){
+                    enable_check = false;
+                    enable_choose = false;
+                    int[] ans = new int[flag.length];
+                    for (int i = 0; i < answer.length - 1; i++) {
+                        System.out.println(Integer.parseInt(answer[i + 1]));
+                        int index = Integer.parseInt(answer[i + 1]) - 1;
+                        ans[index] = 1;
                     }
-                }
-                for (int i = 0; i < flag.length; i++) {
-                    LinearLayout layout = (LinearLayout) list.getChildAt(i);
-                    ImageView img = (ImageView) layout.findViewById(R.id.choice_img);
-                    switch (i) {
-                        case 0:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.a_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.a_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.a_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.a_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.a_wrong);
-                            }
+                    boolean flag_allcorrect = true;
+                    for (int i = 0; i < flag.length; i++) {
+                        if (flag[i] != ans[i]) {
+                            flag_allcorrect = false;
                             break;
-                        case 1:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.b_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.b_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.b_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.b_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.b_wrong);
-                            }
-                            break;
-                        case 2:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.c_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.c_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.c_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.c_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.c_wrong);
-                            }
-                            break;
-                        case 3:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.d_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.d_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.d_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.d_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.d_wrong);
-                            }
-                            break;
-                        case 4:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.e_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.e_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.e_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.e_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.e_wrong);
-                            }
-                            break;
-                        case 5:
-                            if (ans[i] == 0 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.f_unselect);
-                            }
-                            if (ans[i] == 1 && flag[i] == 0) {
-                                img.setImageResource(R.drawable.f_correct);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
-                                img.setImageResource(R.drawable.f_half);
-                            }
-                            if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
-                                img.setImageResource(R.drawable.f_correct);
-                            }
-                            if (ans[i] == 0 && flag[i] == 1) {
-                                img.setImageResource(R.drawable.f_wrong);
-                            }
-                            break;
-                        default:
-                            break;
+                        }
                     }
+                    if (flag_allcorrect) numRight++; else numWrong++;
+                    for (int i = 0; i < flag.length; i++) {
+                        LinearLayout layout = (LinearLayout)list.getChildAt(i);
+                        ImageView img = (ImageView)layout.findViewById(R.id.choice_img);
+                        switch (i) {
+                            case 0:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.a_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.a_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.a_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.a_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.a_wrong);
+                                }
+                                break;
+                            case 1:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.b_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.b_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.b_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.b_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.b_wrong);
+                                }
+                                break;
+                            case 2:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.c_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.c_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.c_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.c_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.c_wrong);
+                                }
+                                break;
+                            case 3:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.d_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.d_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.d_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.d_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.d_wrong);
+                                }
+                                break;
+                            case 4:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.e_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.e_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.e_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.e_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.e_wrong);
+                                }
+                                break;
+                            case 5:
+                                if (ans[i] == 0 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.f_unselect);
+                                }
+                                if (ans[i] == 1 && flag[i] == 0) {
+                                    img.setImageResource(R.drawable.f_correct);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && !flag_allcorrect) {
+                                    img.setImageResource(R.drawable.f_half);
+                                }
+                                if (ans[i] == 1 && flag[i] == 1 && flag_allcorrect) {
+                                    img.setImageResource(R.drawable.f_correct);
+                                }
+                                if (ans[i] == 0 && flag[i] == 1) {
+                                    img.setImageResource(R.drawable.f_wrong);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, 20);
+                    p.topMargin = 40;
+                    p.weight = numRight;
+                    if(numWrong == 0 && numRight == 0) {
+                        p.weight = 1;
+                    }
+                    Button correct_bar = (Button)findViewById(R.id.correct);
+                    correct_bar.setLayoutParams(p);
+
+                    LinearLayout.LayoutParams p2 = new LinearLayout.LayoutParams(0, 20);
+                    p2.topMargin = 40;
+                    p2.weight = numWrong;
+                    if(numWrong == 0 && numRight == 0) {
+                        p2.weight = 1;
+                    }
+                    Button wrong_bar = (Button)findViewById(R.id.wrong);
+                    wrong_bar.setLayoutParams(p2);
+
+                    TextView txRight = (TextView)findViewById(R.id.correct_num);
+                    TextView txWrong = (TextView)findViewById(R.id.wrong_num);
+                    txRight.setText("正确"+numRight);
+                    txWrong.setText("错误"+numWrong);
                 }
             }
         });
