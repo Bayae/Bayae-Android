@@ -24,6 +24,7 @@
         <activity android:name=".study.ModelSelect"></activity>
         <activity android:name=".study.ChoiceSelect"></activity>
         <activity android:name=".libUI.LibSelect"></activity>
+        <activity android:name=".RankList.ResourceList"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

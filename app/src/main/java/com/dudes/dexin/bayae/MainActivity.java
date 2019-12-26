@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.RankList.ResourceList;
 import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
 import com.dudes.dexin.bayae.libUI.LibSelect;
 import com.dudes.dexin.bayae.model.ModelInList;
@@ -98,6 +99,9 @@ public class MainActivity extends Activity {
                         i = new Intent(MainActivity.this, ModelSelect.class);
                         break;
                     case 1:
+                        break;
+                    case 2:
+                        i = new Intent(MainActivity.this, ResourceList.class);
                         break;
                     default:
                         i = new Intent(MainActivity.this,MainActivity.class);
