@@ -31,7 +31,7 @@
         android:layout_marginTop="210dp"
         android:background="@color/colorBackground"
         android:gravity="center"
-        android:text="用户名"
+        android:text="test01"
         android:textColor="@color/colorPrimaryText"
         android:textSize="30sp" />
 
@@ -43,7 +43,7 @@
         android:layout_marginTop="250dp"
         android:background="@color/colorBackground"
         android:gravity="center"
-        android:text="账号:123456"
+        android:text="邮箱:test01@163.com"
         android:textColor="@color/colorSecondaryText"
         android:textSize="18sp" />
 

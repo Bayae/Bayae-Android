@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.R;
@@ -21,6 +22,9 @@ public class User_Info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
+
+        TextView title = (TextView)findViewById(R.id.tv_title);
+        title.setText("个人信息");
         ImageButton btn = findViewById(R.id.ib_title_back);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
