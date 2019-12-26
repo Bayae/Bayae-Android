@@ -14,10 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dudes.dexin.bayae.MainActivity;
-import com.dudes.dexin.bayae.model.ModelInList;
-import com.dudes.dexin.bayae.study.ChoiceSelect;
 import com.dudes.dexin.bayae.R;
+import com.dudes.dexin.bayae.model.ModelInList;
 
 
 public class ModelSelect extends Activity {
@@ -58,6 +56,7 @@ public class ModelSelect extends Activity {
                     i = new Intent(ModelSelect.this, ChoiceSelect.class);
                     break;
                 case 1:
+                    i = new Intent(ModelSelect.this,ChoiceSelect.class);
                     break;
                 default:
                     i = new Intent(ModelSelect.this,ModelSelect.class);
