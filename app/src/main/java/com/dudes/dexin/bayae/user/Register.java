@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.R;
+import com.dudes.dexin.bayae.study.ModelSelect;
 
 import java.io.IOException;
 
@@ -36,11 +39,20 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        TextView title = (TextView)findViewById(R.id.tv_title);
+        title.setText("注册界面");
         rg_email = (EditText) findViewById(R.id.rg_email_text);
         rg_password = (EditText) findViewById(R.id.rg_password_text);
         rg_username =(EditText)findViewById(R.id.rg_username_text);
         rg_Cf_password=(EditText)findViewById(R.id.rg_Cf_password_text);
         Button Register_btn = (Button) findViewById(R.id.rg_button);
+        ImageButton btn = (ImageButton) findViewById(R.id.ib_title_back);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Register.this.finish();
+            }
+        });
         Register_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

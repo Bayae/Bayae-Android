@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -30,6 +32,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        TextView title = (TextView)findViewById(R.id.tv_title);
+        title.setText("登录界面");
+
+        ImageButton btn = (ImageButton) findViewById(R.id.ib_title_back);
+        btn.setVisibility(View.INVISIBLE);
+
 
         accountText = (EditText) findViewById(R.id.credential_text);
         passwordText = (EditText) findViewById(R.id.rg_password_text);
