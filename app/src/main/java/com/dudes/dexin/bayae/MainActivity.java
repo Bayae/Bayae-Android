@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
+import com.dudes.dexin.bayae.game.game_select;
 import com.dudes.dexin.bayae.model.ModelInList;
 import com.dudes.dexin.bayae.study.ChoiceSelect;
 import com.dudes.dexin.bayae.study.ModelSelect;
@@ -86,6 +87,7 @@ public class MainActivity extends Activity {
                         i = new Intent(MainActivity.this, ModelSelect.class);
                         break;
                     case 1:
+                        i = new Intent(MainActivity.this, game_select.class);
                         break;
                     default:
                         i = new Intent(MainActivity.this,MainActivity.class);

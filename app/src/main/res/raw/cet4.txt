@@ -6,27 +6,27 @@
   "words": [{
     "id": "1",
     "word": "tack",
-    "meaning": ["n.打头阵；行动方针", "v.以大头针钉住；附加"],
+    "meaning": "n.打头阵；行动方针\nv.以大头针钉住；附加",
     "done": 0
   }, {
     "id": "2",
     "word": "symphony",
-    "meaning": ["n.交响乐，交响曲"],
+    "meaning": "n.交响乐，交响曲",
     "done": 0
   }, {
     "id": "3",
     "word": "token",
-    "meaning": ["n.标志；象征物；代币；代金券", "adj.象征性的"],
+    "meaning": "n.标志；象征物；代币；代金券\nadj.象征性的",
     "done": 0
   }, {
     "id": "4",
     "word": "tramp",
-    "meaning": ["n.流浪汉；流浪乞丐；徒步旅行", "v.步行；踩；踏"],
+    "meaning": "n.流浪汉；流浪乞丐；徒步旅行\nv.步行；踩；踏",
     "done": 0
   }, {
     "id": "5",
     "word": "trend",
-    "meaning": ["n.趋势；走向", "v.倾向"],
+    "meaning": "n.趋势；走向\nv.倾向",
     "done": 0
   }]
 }

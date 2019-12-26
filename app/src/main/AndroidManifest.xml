@@ -22,6 +22,14 @@
         <activity android:name=".user.Login" />
         <activity android:name=".user.User_Info" />
         <activity android:name=".study.ModelSelect"></activity>
+        <activity android:name=".game.game_select">
+            <intent-filter>
+                <action android:name="android.intent.action.GAME_SELET" />
+                <category android:name="android.intent.category.GAME_SELET" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".game.game_main"></activity>
+        <activity android:name=".game.game"></activity>
         <activity android:name=".study.ChoiceSelect"></activity>
     </application>
 
