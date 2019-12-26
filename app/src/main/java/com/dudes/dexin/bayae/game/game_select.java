@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.MainActivity;
 import com.dudes.dexin.bayae.R;
 import com.dudes.dexin.bayae.study.ModelSelect;
 
@@ -24,7 +25,8 @@ public class game_select extends Activity{
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                game_select.this.finish();
+                Intent intent = new Intent(game_select.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

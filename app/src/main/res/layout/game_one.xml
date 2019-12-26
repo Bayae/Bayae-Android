@@ -35,11 +35,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="373dp"
+        android:layout_height="382dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:background="@drawable/wordfillout"
+        android:background="@drawable/fightdragon"
         tools:layout_below="@id/game_one_name" />
 
     <ProgressBar
@@ -52,5 +52,14 @@
         android:layout_marginBottom="10dp"
         android:max="100"
         android:progressTint="#3F51B5" />
+
+    <TextView
+        android:id="@+id/run_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/run_tip"
+        android:textSize="20sp" />
 
 </RelativeLayout>

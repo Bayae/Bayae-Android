@@ -31,13 +31,14 @@
                 android:textColor="#fff"
                 android:textSize="22sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/game_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="5dp"
+                android:background="#00FFFFFF"
                 android:text="@string/game_next"
                 android:textColor="@color/colorPureWhite"
                 android:textSize="22sp" />
@@ -144,7 +145,9 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:max="16"
+                android:progressTint="#41F318" />
 
             <TextView
                 android:id="@+id/textView"
