@@ -33,6 +33,8 @@
         <activity android:name=".study.ChoiceSelect"></activity>
         <activity android:name=".study.FillBlanks"></activity>
         <activity android:name=".study.Reciting"></activity>
+        <activity android:name=".libUI.LibSelect"></activity>
+        <activity android:name=".RankList.ResourceList"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

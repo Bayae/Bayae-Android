@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dudes.dexin.bayae.RankList.ResourceList;
 import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
 import com.dudes.dexin.bayae.game.game_select;
+import com.dudes.dexin.bayae.libUI.LibSelect;
 import com.dudes.dexin.bayae.model.ModelInList;
 import com.dudes.dexin.bayae.study.ModelSelect;
 import com.dudes.dexin.bayae.user.User_Info;
@@ -48,6 +50,17 @@ public class MainActivity extends Activity {
             public void onClick(View v){
                 Intent it = new Intent();
                 it.setClass(MainActivity.this, User_Info.class);
+                MainActivity.this.startActivity(it);
+            }
+        });
+
+        //库模块
+        ImageButton btn2 = findViewById(R.id.setting_bank);
+        btn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent it = new Intent();
+                it.setClass(MainActivity.this, LibSelect.class);
                 MainActivity.this.startActivity(it);
             }
         });
@@ -85,6 +98,9 @@ public class MainActivity extends Activity {
                         break;
                     case 1:
                         i = new Intent(MainActivity.this, game_select.class);
+                        break;
+                    case 2:
+                        i = new Intent(MainActivity.this, ResourceList.class);
                         break;
                     default:
                         i = new Intent(MainActivity.this,MainActivity.class);
