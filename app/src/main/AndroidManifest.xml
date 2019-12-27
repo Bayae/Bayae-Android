@@ -31,6 +31,8 @@
         <activity android:name=".game.game_main"></activity>
         <activity android:name=".game.game"></activity>
         <activity android:name=".study.ChoiceSelect"></activity>
+        <activity android:name=".study.FillBlanks"></activity>
+        <activity android:name=".study.Reciting"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

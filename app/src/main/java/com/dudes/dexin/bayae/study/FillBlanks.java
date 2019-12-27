@@ -23,7 +23,7 @@ import com.dudes.dexin.bayae.model.QuizLib;
 
 import java.util.List;
 
-public class ChoiceSelect extends Activity{
+public class FillBlanks extends Activity {
     private SharedPreferencesHelper sharedPreferencesHelper;
     private int numRight;
     private int numWrong;
@@ -37,10 +37,10 @@ public class ChoiceSelect extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.study_abcd);
 
-        sharedPreferencesHelper = new SharedPreferencesHelper(ChoiceSelect.this,"Lib");
-        LibManager libManager = new LibManager(sharedPreferencesHelper,ChoiceSelect.this);
+        sharedPreferencesHelper = new SharedPreferencesHelper(FillBlanks.this,"Lib");
+        LibManager libManager = new LibManager(sharedPreferencesHelper,FillBlanks.this);
         final QuizLib quizLib = libManager.getQuizLib(libManager.getChosenQuizLib());
-        final List<Quiz> quizList = quizLib.getMultChoiceQuestions();
+        final List<Quiz> quizList = quizLib.getFillBlankQuestions();
         currentQuizId = initLib(quizList);
 
         //题目
@@ -66,7 +66,7 @@ public class ChoiceSelect extends Activity{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChoiceSelect.this.finish();
+                FillBlanks.this.finish();
             }
         });
 

@@ -53,13 +53,16 @@ public class ModelSelect extends Activity {
             Intent i = new Intent(ModelSelect.this,ModelSelect.class);
             switch (position){
                 case 0:
-                    i = new Intent(ModelSelect.this, ChoiceSelect.class);
+                    i = new Intent(ModelSelect.this, Reciting.class);
                     break;
                 case 1:
                     i = new Intent(ModelSelect.this,ChoiceSelect.class);
                     break;
+                case 2:
+                    i = new Intent(ModelSelect.this,FillBlanks.class);
+                    break;
                 default:
-                    i = new Intent(ModelSelect.this,ModelSelect.class);
+                    i = new Intent(ModelSelect.this,FillBlanks.class);
                     break;
             }
             startActivity(i);
