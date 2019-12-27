@@ -16,9 +16,9 @@ import android.widget.TextView;
 
 import com.dudes.dexin.bayae.RankList.ResourceList;
 import com.dudes.dexin.bayae.common.SharedPreferencesHelper;
+import com.dudes.dexin.bayae.game.game_select;
 import com.dudes.dexin.bayae.libUI.LibSelect;
 import com.dudes.dexin.bayae.model.ModelInList;
-import com.dudes.dexin.bayae.study.ChoiceSelect;
 import com.dudes.dexin.bayae.study.ModelSelect;
 import com.dudes.dexin.bayae.user.User_Info;
 
@@ -33,8 +33,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        Intent intent = new Intent(MainActivity.this, ChoiceSelect.class);
-        startActivity(intent);
     }
 
     private void init(){
@@ -66,6 +64,7 @@ public class MainActivity extends Activity {
                 MainActivity.this.startActivity(it);
             }
         });
+
 
 //        //题库调用方式
 //        LibManager libManager = new LibManager(sharedPreferencesHelper,MainActivity.this);
@@ -99,6 +98,7 @@ public class MainActivity extends Activity {
                         i = new Intent(MainActivity.this, ModelSelect.class);
                         break;
                     case 1:
+                        i = new Intent(MainActivity.this, game_select.class);
                         break;
                     case 2:
                         i = new Intent(MainActivity.this, ResourceList.class);

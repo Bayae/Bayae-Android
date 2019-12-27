@@ -62,7 +62,7 @@ public class LibManager {
         return qLibJsonToObject;
     }
 
-    //获得词库
+    //获得词库 libName词库文件名
     public WordLib getWordLib(String libName){
         String qLibObjectToJson = readFileFromRaw(context, getResource("raw", libName));
         WordLib qLibJsonToObject = JSON.parseObject(qLibObjectToJson,new TypeReference<WordLib>(){});
@@ -87,8 +87,9 @@ public class LibManager {
     //获得资源的资源号
     public int getResource(String defType,String sourceName){
         Context ctx = context.getBaseContext();
+        System.out.println(ctx.getPackageName());
         int resId = context.getResources().getIdentifier(sourceName, defType, ctx.getPackageName());
-        //如果没有在"mipmap"下找到imageName,将会返回0
+        //如果没有在"raw"下找到sourceName,将会返回0
         return resId;
     }
 }

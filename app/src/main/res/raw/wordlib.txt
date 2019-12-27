@@ -1,0 +1,1 @@
+{"id":1,"name":"ELC1","num":2,"words":[{"id":1,"word":"good","meaning":"adj.好的","done":0},{"id":2,"word":"bad","meaning":"adj.坏的","done":0}]}
